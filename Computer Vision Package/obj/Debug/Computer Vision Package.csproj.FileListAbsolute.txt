@@ -1,0 +1,9 @@
+c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\bin\Debug\Computer Vision Package.exe.config
+c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\bin\Debug\Computer Vision Package.exe
+c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\bin\Debug\Computer Vision Package.pdb
+c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.csprojResolveAssemblyReference.cache
+c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\obj\Debug\Computer_Vision_Package.Properties.Resources.resources
+c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.csproj.GenerateResource.Cache
+c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.exe
+c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.pdb
+c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\obj\Debug\Computer_Vision_Package.ComputerVision.resources
