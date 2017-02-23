@@ -7,3 +7,14 @@ c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Pack
 c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.exe
 c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.pdb
 c:\users\yousef rabie\documents\visual studio 2015\Projects\Computer Vision Package\Computer Vision Package\obj\Debug\Computer_Vision_Package.ComputerVision.resources
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\obj\Debug\Computer_Vision_Package.ComputerVision.resources
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\obj\Debug\Computer_Vision_Package.Properties.Resources.resources
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.csproj.GenerateResource.Cache
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\Computer Vision Package.exe.config
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\Computer Vision Package.exe
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\Computer Vision Package.pdb
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\HelperFunctionality.dll
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\HelperFunctionality.pdb
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.csprojResolveAssemblyReference.cache
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.exe
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.pdb

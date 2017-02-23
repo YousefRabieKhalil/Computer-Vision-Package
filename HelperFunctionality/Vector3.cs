@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Computer_Vision_Package
+namespace HelperFunctionality
 {
-    class Vector3
+    public class Vector3
     {
         public int R, G, B;
 

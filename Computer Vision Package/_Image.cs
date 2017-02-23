@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HelperFunctionality;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -8,12 +9,13 @@ using System.Windows.Forms;
 
 namespace Computer_Vision_Package
 {
-    class _Image
+    public class _Image
     {
         private string ImageLocation;
         private Image MainImage, FilterdImage;
         public List<List<Vector3>> RGBVaues;
         private Bitmap ImageBitMap;
+        private Bitmap FilterdImageBitMap;
         
 
         public _Image()
@@ -22,6 +24,10 @@ namespace Computer_Vision_Package
         }
 
         #region Setter And Getter
+        public void SetFilterdBitMap(ref Bitmap Filterd)
+        {
+            FilterdImageBitMap = Filterd;
+        }
         /// <summary>
         /// Set The Image Location And Load Image Or not
         /// </summary>
@@ -61,6 +67,14 @@ namespace Computer_Vision_Package
         {
             return MainImage;
         }
+        /// <summary>
+        /// set The Filted Image
+        /// </summary>
+        /// <param name="filterDImage"> Image After Applay Filter</param>
+        public void SetFilterdImage(Image filterDImage)
+        {
+            this.FilterdImage = filterDImage;
+        }
         #endregion
 
 
@@ -96,7 +110,7 @@ namespace Computer_Vision_Package
         public void ShowImageAsPixels(PictureBox WorkStation )
         {
             RGBVaues = new List<List<Vector3>>();
-            CalculateRGBValues();
+           
             for (int i = 0; i < ImageBitMap.Width; i++)
             { 
                 for (int j = 0; j < ImageBitMap.Height; j++)
@@ -106,6 +120,25 @@ namespace Computer_Vision_Package
                     {
                         SolidBrush So = new SolidBrush(ImageBitMap.GetPixel(j, i));
                         g.FillRectangle(So , new RectangleF(j+  (j*3) , i + (i*3), 1 , 1));
+
+                    }
+                }
+            }
+        }
+
+        public void ShowFilterdImageAsPixels(PictureBox WorkStation)
+        {
+            RGBVaues = new List<List<Vector3>>();
+            
+            for (int i = 0; i < FilterdImageBitMap.Width; i++)
+            {
+                for (int j = 0; j < FilterdImageBitMap.Height; j++)
+                {
+                    // Complete it Please
+                    using (Graphics g = WorkStation.CreateGraphics())
+                    {
+                        SolidBrush So = new SolidBrush(FilterdImageBitMap.GetPixel(j, i));
+                        g.FillRectangle(So, new RectangleF(j, i , 1, 1));
 
                     }
                 }

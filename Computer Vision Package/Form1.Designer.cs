@@ -31,11 +31,12 @@
             this.Pic_One = new System.Windows.Forms.PictureBox();
             this.ImagePath_txt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Pixel_View_CheckBox = new System.Windows.Forms.CheckBox();
             this.ResetPre_Image = new System.Windows.Forms.Button();
             this.Prevoius_Images = new System.Windows.Forms.ListBox();
             this.LoadImage = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Pixel_View_CheckBox = new System.Windows.Forms.CheckBox();
+            this.FiltersList = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Pic_One)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.FiltersList);
             this.groupBox1.Controls.Add(this.Pixel_View_CheckBox);
             this.groupBox1.Controls.Add(this.ResetPre_Image);
             this.groupBox1.Controls.Add(this.Prevoius_Images);
@@ -69,6 +71,17 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controles";
+            // 
+            // Pixel_View_CheckBox
+            // 
+            this.Pixel_View_CheckBox.AutoSize = true;
+            this.Pixel_View_CheckBox.Location = new System.Drawing.Point(6, 32);
+            this.Pixel_View_CheckBox.Name = "Pixel_View_CheckBox";
+            this.Pixel_View_CheckBox.Size = new System.Drawing.Size(120, 17);
+            this.Pixel_View_CheckBox.TabIndex = 2;
+            this.Pixel_View_CheckBox.Text = "show Image In Pixel";
+            this.Pixel_View_CheckBox.UseVisualStyleBackColor = true;
+            this.Pixel_View_CheckBox.CheckedChanged += new System.EventHandler(this.Pixel_View_CheckBox_CheckedChanged);
             // 
             // ResetPre_Image
             // 
@@ -107,16 +120,15 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Image Path:";
             // 
-            // Pixel_View_CheckBox
+            // FiltersList
             // 
-            this.Pixel_View_CheckBox.AutoSize = true;
-            this.Pixel_View_CheckBox.Location = new System.Drawing.Point(6, 32);
-            this.Pixel_View_CheckBox.Name = "Pixel_View_CheckBox";
-            this.Pixel_View_CheckBox.Size = new System.Drawing.Size(120, 17);
-            this.Pixel_View_CheckBox.TabIndex = 2;
-            this.Pixel_View_CheckBox.Text = "show Image In Pixel";
-            this.Pixel_View_CheckBox.UseVisualStyleBackColor = true;
-            this.Pixel_View_CheckBox.CheckedChanged += new System.EventHandler(this.Pixel_View_CheckBox_CheckedChanged);
+            this.FiltersList.FormattingEnabled = true;
+            this.FiltersList.Location = new System.Drawing.Point(6, 65);
+            this.FiltersList.Name = "FiltersList";
+            this.FiltersList.Size = new System.Drawing.Size(261, 21);
+            this.FiltersList.TabIndex = 3;
+            this.FiltersList.Text = "List Of Filters";
+            this.FiltersList.SelectedIndexChanged += new System.EventHandler(this.FiltersList_SelectedIndexChanged);
             // 
             // ComputerVision
             // 
@@ -149,6 +161,7 @@
         private System.Windows.Forms.Button ResetPre_Image;
         private System.Windows.Forms.ListBox Prevoius_Images;
         private System.Windows.Forms.CheckBox Pixel_View_CheckBox;
+        private System.Windows.Forms.ComboBox FiltersList;
     }
 }
 

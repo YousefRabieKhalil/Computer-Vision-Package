@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Computer_Vision_Package
 {
-    class Filter
+    public abstract class Filter
     {
+        /// <summary>
+        ///  Applay Filtter For An Specific Image
+        /// </summary>
+        public abstract void ApplayFilter(_Image ApplayImage);
+        /// <summary>
+        /// Get The Name For Specifid Filter
+        /// </summary>
+        /// <returns></returns>
+        public abstract override string ToString();
+
     }
 }

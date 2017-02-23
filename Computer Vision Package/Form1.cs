@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,8 +21,15 @@ namespace Computer_Vision_Package
 
         public void StartPackage()
         {
-            // Here We Can initialize Our Package Item  
             ImageControl = new _Image();
+            var assemblyTypes = Assembly.GetAssembly(typeof(Filter)).GetTypes();
+          
+            var FiltersType = assemblyTypes.Where(x => !x.IsAbstract && x.IsSubclassOf(typeof(Filter)));
+
+            foreach (var filter in FiltersType)
+            {
+                this.FiltersList.Items.Add((Filter)Activator.CreateInstance(filter, null));
+            }
         }
         private void LoadImage_Click(object sender, EventArgs e)
         {
@@ -67,6 +75,15 @@ namespace Computer_Vision_Package
             {
                 Pic_One.Image = ImageControl.GetMainImage();
             }
+        }
+
+        private void FiltersList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Filter selectedAlgorithm = this.FiltersList.SelectedItem as Filter;
+            selectedAlgorithm.ApplayFilter(ImageControl);
+
+            ImageControl.ShowFilterdImageAsPixels(Pic_One);
+
         }
     }
 }
