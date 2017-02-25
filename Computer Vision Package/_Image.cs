@@ -14,6 +14,7 @@ namespace Computer_Vision_Package
         private string ImageLocation;
         private Image MainImage, FilterdImage;
         public List<List<Vector3>> RGBVaues;
+        public int ImageWidth, ImageHeight;
         private Bitmap ImageBitMap;
         private Bitmap FilterdImageBitMap;
         
@@ -24,6 +25,12 @@ namespace Computer_Vision_Package
         }
 
         #region Setter And Getter
+
+        public Bitmap GetFilterdImageBitMap()
+        {
+            return FilterdImageBitMap;
+        }
+
         public void SetFilterdBitMap(ref Bitmap Filterd)
         {
             FilterdImageBitMap = Filterd;
@@ -86,6 +93,8 @@ namespace Computer_Vision_Package
         {
             MainImage = FilterdImage = Image.FromFile(ImageLocation);
             ImageBitMap = new Bitmap(MainImage);
+            ImageWidth = ImageBitMap.Width;
+            ImageHeight = ImageBitMap.Height;
         }
 
         /// <summary>
@@ -142,6 +151,17 @@ namespace Computer_Vision_Package
 
                     }
                 }
+            }
+        }
+        /// <summary>
+        /// Check if The Image Will No make An Error Or Not
+        /// </summary>
+        public void PreprocessingStep()
+        {
+            if (ImageBitMap.Width != ImageBitMap.Height)
+            {
+                // Resize The image
+                //MainImage
             }
         }
 

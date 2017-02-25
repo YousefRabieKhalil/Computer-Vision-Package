@@ -14,6 +14,8 @@ namespace Computer_Vision_Package
     public partial class ComputerVision : Form
     {
         _Image ImageControl;
+
+        Point MouseDownLocation;
         public ComputerVision()
         {
             InitializeComponent();
@@ -30,6 +32,7 @@ namespace Computer_Vision_Package
             {
                 this.FiltersList.Items.Add((Filter)Activator.CreateInstance(filter, null));
             }
+            MouseDownLocation = new Point();
         }
         private void LoadImage_Click(object sender, EventArgs e)
         {
@@ -40,9 +43,10 @@ namespace Computer_Vision_Package
             {
                 ImagePath_txt.Text = OFD.FileName;
                 ImageControl.SetImageLocation(OFD.FileName , true);
-
-                Pic_One.Image = ImageControl.GetMainImage();
-
+                // Adding The Picture Box To The panel 
+                PictureBox WantToAdded = CreateNewPictureBox();
+                WantToAdded.Image = ImageControl.GetMainImage();
+                ///////////
                 Prevoius_Images.Items.Add(OFD.FileName);
             }
             else
@@ -64,17 +68,6 @@ namespace Computer_Vision_Package
 
         private void Pixel_View_CheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            
-            if (Pixel_View_CheckBox.Checked == true)
-            {
-                Pic_One.Image = null;
-                Pic_One.Refresh();
-                ImageControl.ShowImageAsPixels(Pic_One);
-            }
-            else
-            {
-                Pic_One.Image = ImageControl.GetMainImage();
-            }
         }
 
         private void FiltersList_SelectedIndexChanged(object sender, EventArgs e)
@@ -82,8 +75,45 @@ namespace Computer_Vision_Package
             Filter selectedAlgorithm = this.FiltersList.SelectedItem as Filter;
             selectedAlgorithm.ApplayFilter(ImageControl);
 
-            ImageControl.ShowFilterdImageAsPixels(Pic_One);
+            PictureBox WantToAdd = CreateNewPictureBox();
+            WantToAdd.Name = selectedAlgorithm.ToString();
+            WantToAdd.Image = ImageControl.GetFilterdImageBitMap();
+        }
+        public PictureBox CreateNewPictureBox()
+        {
+            PictureBox NewPic = new PictureBox();
+            NewPic.Size = new Size(ImageControl.ImageWidth, ImageControl.ImageHeight);
+            NewPic.Location = new Point(100, 100);
+            NewPic.BorderStyle = BorderStyle.FixedSingle;
+            NewPic.MouseDown += pictureBox1_MouseDown;
+            NewPic.MouseMove += pictureBox1_MouseMove;
+            NewPic.Name = "NO";
+            panel1.Controls.Add(NewPic);
 
+            return NewPic;
+        }
+
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                MouseDownLocation = e.Location;
+                Selected_AppliedFilter.Text = (sender as PictureBox).Name;
+                Selected_ImageSize.Text = (sender as PictureBox).Size.ToString();
+            }
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            PictureBox pictureBox1 = sender as PictureBox;
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                pictureBox1.Left = e.X + pictureBox1.Left - MouseDownLocation.X;
+                pictureBox1.Top = e.Y + pictureBox1.Top - MouseDownLocation.Y;
+
+                Selected_ImagePosition.Text = (sender as PictureBox).Location.ToString();
+            }
         }
     }
 }
