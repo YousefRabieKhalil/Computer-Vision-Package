@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControlingClasses;
+using HelperFunctionality;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,6 +41,7 @@ namespace Computer_Vision_Package
             OpenFileDialog OFD = new OpenFileDialog();
             OFD.Title = "Please Choose Image To Applay Filters";
             OFD.Filter = "Images|*.png;*.jpg;*.jpeg";
+            button1.PerformClick();
             if (OFD.ShowDialog() == DialogResult.OK)
             {
                 ImagePath_txt.Text = OFD.FileName;
@@ -48,6 +51,7 @@ namespace Computer_Vision_Package
                 WantToAdded.Image = ImageControl.GetMainImage();
                 ///////////
                 Prevoius_Images.Items.Add(OFD.FileName);
+
             }
             else
             {
@@ -68,6 +72,7 @@ namespace Computer_Vision_Package
 
         private void Pixel_View_CheckBox_CheckedChanged(object sender, EventArgs e)
         {
+
         }
 
         private void FiltersList_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,7 +118,35 @@ namespace Computer_Vision_Package
                 pictureBox1.Top = e.Y + pictureBox1.Top - MouseDownLocation.Y;
 
                 Selected_ImagePosition.Text = (sender as PictureBox).Location.ToString();
+                panel1.Invalidate();
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics G = panel1.CreateGraphics();
+            for (int i = 1; i < panel1.Controls.Count; i++)
+            {
+                Line L = new Line(panel1.Controls[0].Location, panel1.Controls[i].Location);
+                L.DrawLine(G);
+
+                PointF TextLocation = new PointF((panel1.Controls[i].Location.X + panel1.Controls[0].Location.X ) / 2 ,
+                    (panel1.Controls[i].Location.Y + panel1.Controls[0].Location.Y) / 2
+                    );
+
+                using (SolidBrush br = new SolidBrush(Color.Red))
+                {
+                    e.Graphics.DrawString(panel1.Controls[i].Name, this.Font, br, TextLocation);
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel1.Controls.Clear();
+            panel1.Invalidate();
+
+            ImageControl = new _Image();
         }
     }
 }

@@ -18,3 +18,5 @@ D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer 
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.csprojResolveAssemblyReference.cache
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.exe
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\obj\Debug\Computer Vision Package.pdb
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\ControlingClasses.dll
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\ControlingClasses.pdb

@@ -6,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
-namespace Computer_Vision_Package
+namespace ControlingClasses
 {
     public class _Image
     {
