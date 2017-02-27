@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComputerVision));
             this.ImagePath_txt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SelectedImage = new System.Windows.Forms.GroupBox();
@@ -39,12 +40,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.FiltersList = new System.Windows.Forms.ComboBox();
             this.Pixel_View_CheckBox = new System.Windows.Forms.CheckBox();
-            this.ResetPre_Image = new System.Windows.Forms.Button();
-            this.Prevoius_Images = new System.Windows.Forms.ListBox();
             this.LoadImage = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.Prevoius_Images = new System.Windows.Forms.ListBox();
+            this.ResetPre_Image = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SelectedImage.SuspendLayout();
             this.SuspendLayout();
@@ -64,13 +65,13 @@
             this.groupBox1.Controls.Add(this.SelectedImage);
             this.groupBox1.Controls.Add(this.LoadImage);
             this.groupBox1.Controls.Add(this.ImagePath_txt);
+            this.groupBox1.Controls.Add(this.Prevoius_Images);
             this.groupBox1.Controls.Add(this.FiltersList);
             this.groupBox1.Controls.Add(this.Pixel_View_CheckBox);
-            this.groupBox1.Controls.Add(this.Prevoius_Images);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(654, 0);
+            this.groupBox1.Location = new System.Drawing.Point(651, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(273, 512);
+            this.groupBox1.Size = new System.Drawing.Size(276, 512);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controles";
@@ -86,7 +87,7 @@
             this.SelectedImage.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SelectedImage.Location = new System.Drawing.Point(3, 306);
             this.SelectedImage.Name = "SelectedImage";
-            this.SelectedImage.Size = new System.Drawing.Size(267, 108);
+            this.SelectedImage.Size = new System.Drawing.Size(270, 108);
             this.SelectedImage.TabIndex = 4;
             this.SelectedImage.TabStop = false;
             this.SelectedImage.Text = "Selected Image";
@@ -166,26 +167,6 @@
             this.Pixel_View_CheckBox.UseVisualStyleBackColor = true;
             this.Pixel_View_CheckBox.CheckedChanged += new System.EventHandler(this.Pixel_View_CheckBox_CheckedChanged);
             // 
-            // ResetPre_Image
-            // 
-            this.ResetPre_Image.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ResetPre_Image.Location = new System.Drawing.Point(3, 283);
-            this.ResetPre_Image.Name = "ResetPre_Image";
-            this.ResetPre_Image.Size = new System.Drawing.Size(267, 23);
-            this.ResetPre_Image.TabIndex = 1;
-            this.ResetPre_Image.Text = "Resize List";
-            this.ResetPre_Image.UseVisualStyleBackColor = true;
-            this.ResetPre_Image.Click += new System.EventHandler(this.ResetPre_Image_Click);
-            // 
-            // Prevoius_Images
-            // 
-            this.Prevoius_Images.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Prevoius_Images.FormattingEnabled = true;
-            this.Prevoius_Images.Location = new System.Drawing.Point(3, 414);
-            this.Prevoius_Images.Name = "Prevoius_Images";
-            this.Prevoius_Images.Size = new System.Drawing.Size(267, 95);
-            this.Prevoius_Images.TabIndex = 0;
-            // 
             // LoadImage
             // 
             this.LoadImage.Location = new System.Drawing.Point(191, 56);
@@ -224,6 +205,26 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Prevoius_Images
+            // 
+            this.Prevoius_Images.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Prevoius_Images.FormattingEnabled = true;
+            this.Prevoius_Images.Location = new System.Drawing.Point(3, 414);
+            this.Prevoius_Images.Name = "Prevoius_Images";
+            this.Prevoius_Images.Size = new System.Drawing.Size(270, 95);
+            this.Prevoius_Images.TabIndex = 0;
+            // 
+            // ResetPre_Image
+            // 
+            this.ResetPre_Image.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ResetPre_Image.Location = new System.Drawing.Point(3, 283);
+            this.ResetPre_Image.Name = "ResetPre_Image";
+            this.ResetPre_Image.Size = new System.Drawing.Size(270, 23);
+            this.ResetPre_Image.TabIndex = 1;
+            this.ResetPre_Image.Text = "Resize List";
+            this.ResetPre_Image.UseVisualStyleBackColor = true;
+            this.ResetPre_Image.Click += new System.EventHandler(this.ResetPre_Image_Click);
+            // 
             // ComputerVision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,6 +232,7 @@
             this.ClientSize = new System.Drawing.Size(927, 512);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ComputerVision";
             this.Text = "Computer Vision";
             this.Load += new System.EventHandler(this.ComputerVision_Load);
@@ -247,8 +249,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button LoadImage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button ResetPre_Image;
-        private System.Windows.Forms.ListBox Prevoius_Images;
         private System.Windows.Forms.CheckBox Pixel_View_CheckBox;
         private System.Windows.Forms.ComboBox FiltersList;
         private System.Windows.Forms.Panel panel1;
@@ -260,6 +260,8 @@
         private System.Windows.Forms.Label Selected_ImageSize;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ResetPre_Image;
+        private System.Windows.Forms.ListBox Prevoius_Images;
     }
 }
 

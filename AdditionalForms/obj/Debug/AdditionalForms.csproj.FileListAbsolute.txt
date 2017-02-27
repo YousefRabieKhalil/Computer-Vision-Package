@@ -1,0 +1,12 @@
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\bin\Debug\AdditionalForms.dll
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\bin\Debug\AdditionalForms.pdb
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\bin\Debug\HelperFunctionality.dll
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\bin\Debug\MetroFramework.Design.dll
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\bin\Debug\MetroFramework.dll
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\bin\Debug\MetroFramework.Fonts.dll
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\bin\Debug\HelperFunctionality.pdb
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.csprojResolveAssemblyReference.cache
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.csproj.GenerateResource.Cache
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.dll
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.pdb
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.GammaFilterForm.resources

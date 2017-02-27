@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperFunctionality", "Help
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlingClasses", "ControlingClasses\ControlingClasses.csproj", "{986967C4-1CFF-4B08-BA38-CBE41E08C104}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalForms", "AdditionalForms\AdditionalForms.csproj", "{CCBC1E3C-3A8C-4C0A-BC9A-5072CB0BFA10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{986967C4-1CFF-4B08-BA38-CBE41E08C104}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{986967C4-1CFF-4B08-BA38-CBE41E08C104}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{986967C4-1CFF-4B08-BA38-CBE41E08C104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCBC1E3C-3A8C-4C0A-BC9A-5072CB0BFA10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCBC1E3C-3A8C-4C0A-BC9A-5072CB0BFA10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCBC1E3C-3A8C-4C0A-BC9A-5072CB0BFA10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCBC1E3C-3A8C-4C0A-BC9A-5072CB0BFA10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Computer_Vision_Package
 {
-    public partial class ComputerVision : Form
+    public partial class ComputerVision : MetroFramework.Forms.MetroForm
     {
         _Image ImageControl;
 
@@ -89,7 +89,7 @@ namespace Computer_Vision_Package
             PictureBox NewPic = new PictureBox();
             NewPic.Size = new Size(ImageControl.ImageWidth, ImageControl.ImageHeight);
             NewPic.Location = new Point(100, 100);
-            NewPic.BorderStyle = BorderStyle.FixedSingle;
+            //NewPic.BorderStyle = BorderStyle.FixedSingle;
             NewPic.MouseDown += pictureBox1_MouseDown;
             NewPic.MouseMove += pictureBox1_MouseMove;
             NewPic.Name = "NO";

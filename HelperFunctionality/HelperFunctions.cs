@@ -90,6 +90,67 @@ namespace HelperFunctionality
                 }
             }
         }
+        /// <summary>
+        /// Applaying Convolution using  X And Y  Filter;
+        /// </summary>
+        /// <param name="ImageBitmap"> The Image itself</param>
+        /// <param name="KernalSize"> The Side Size OF a Filter KErnal </param>
+        /// <param name="Ymatrix"> The Y matrix Filter </param>
+        /// <param name="Xmatrix"> The X matrix Filter </param>
+        /// <param name="RGBvalues"> The RGB Values </param>
+        /// <param name="width"> The Width of an Image After Applay Padding </param>
+        /// <param name="height"> The height Of an Image After Applay Padding </param>
+        public static void Convolution(Bitmap ImageBitmap, int KernalSize, double[,] Ymatrix , double[,] Xmatrix, Vector3[,] RGBvalues, int width, int height)
+        {
+
+            Vector3 MinVector = GetMin(RGBvalues, width, height);
+            Vector3 MaxVector = GetMax(RGBvalues, width, height);
+            int AdditionColRow = KernalSize / 2;
+            for (int i = AdditionColRow; i < height - AdditionColRow * 2; i++)
+            {
+                for (int j = AdditionColRow; j < width - AdditionColRow * 2; j++)
+                {
+                    double SumRx = 0, SumGx = 0, SumBx = 0 , SumRy = 0, SumGy  = 0 , SumBy = 0 ;
+                    int indexi = 0, Indexj = 0;
+                    // Applay The Filter
+                    for (int k = i - AdditionColRow; k < (i - AdditionColRow) + KernalSize && (j - 1) + KernalSize < height; k++)
+                    {
+                        Indexj = 0;
+                        for (int m = j - AdditionColRow; m < (j - AdditionColRow) + KernalSize && (j - AdditionColRow) + KernalSize < width; m++)
+                        {
+                            SumRx += Xmatrix[indexi, Indexj] * RGBvalues[k, m].R;
+                            SumGx += Xmatrix[indexi, Indexj] * RGBvalues[k, m].G;
+                            SumBx += Xmatrix[indexi, Indexj] * RGBvalues[k, m].B;
+
+
+                            SumRy += Xmatrix[indexi, Indexj] * RGBvalues[k, m].R;
+                            SumGy += Xmatrix[indexi, Indexj] * RGBvalues[k, m].G;
+                            SumBy += Xmatrix[indexi, Indexj] * RGBvalues[k, m].B;
+
+
+                            Indexj++;
+
+                        }
+                        indexi++;
+                    }
+
+                    double bt, gt, rt;
+
+                    rt = Math.Sqrt((SumRx * SumRx) + (SumRy * SumRy));
+                    gt = Math.Sqrt((SumGx * SumGx) + (SumGy * SumGy));
+                    bt = Math.Sqrt((SumBx * SumBx) + (SumBy * SumBy));
+
+                    //set limits, can hold values from 0 up to 255;
+                    if (bt > 255) bt = 255;
+                    else if (bt < 0) bt = 0;
+                    if (gt > 255) gt = 255;
+                    else if (gt < 0) gt = 0;
+                    if (rt > 255) rt = 255;
+                    else if (rt < 0) rt = 0;
+                    ImageBitmap.SetPixel(i - 1, j - 1, Color.FromArgb((int)rt, (int)gt, (int)bt));
+                }
+            }
+        }
 
         /// <summary>
         /// Normalize A value 
@@ -97,7 +158,7 @@ namespace HelperFunctionality
         /// <param name="Max"> Maximum Value </param>
         /// <param name="Min"> MiniMum Value </param>
         /// <param name="Value"> Value Want To Normalize </param>
-        /// <returns></returns>
+        /// <returns>The Value After Applying Normalization</returns>
         public static double Normalize(double Max, double Min, double Value)
         {
             double NormalizedValue;

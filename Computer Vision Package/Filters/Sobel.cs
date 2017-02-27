@@ -15,24 +15,47 @@ namespace Computer_Vision_Package
         Image MainImage;
         Bitmap ImageBitMap;
         Vector3[,] RGBvalues; // RGB Values After Padding
-        double[,] FilterMatrix;
         int Newheight;
         int NewWidth;
+        private static double[,] xSobel
+        {
+            get
+            {
+                return new double[,]
+                {
+            { -1, 0, 1 },
+            { -2, 0, 2 },
+            { -1, 0, 1 }
+                };
+            }
+        }
 
+        //Sobel operator kernel for vertical pixel changes
+        private static double[,] ySobel
+        {
+            get
+            {
+                return new double[,]
+                {
+            {  1,  2,  1 },
+            {  0,  0,  0 },
+            { -1, -2, -1 }
+                };
+            }
+        }
         public override void ApplayFilter(_Image ApplayImage)
         {
             // The Side Size of The Filter
             const int KernalSize = 3;
             // The Matrix of The Filter
-            FilterMatrix = new double[KernalSize, KernalSize] { { 1.0f, 0.0f, -1.0f }, { 2.0f, 0.0f, -2.0f }, { 1.0f, 0.0f, -1.0f } };
 
             MainImage = ApplayImage.GetMainImage();
             ImageBitMap = new Bitmap(MainImage);
 
             // Applying Padding
             RGBvalues = HelperFunctions.Padding(ImageBitMap, KernalSize, out NewWidth, out Newheight);
-            // Applay Convolution
-            HelperFunctions.Convolution(ImageBitMap, KernalSize, FilterMatrix, RGBvalues, NewWidth, Newheight);
+            // Applay Convolution for X And y Sobel
+            HelperFunctions.Convolution(ImageBitMap, KernalSize, ySobel , xSobel, RGBvalues, NewWidth, Newheight);
             // Set The Filterd Image To the MainImage
             ApplayImage.SetFilterdBitMap(ref ImageBitMap);
 
