@@ -65,5 +65,16 @@ namespace Computer_Vision_Package
         {
             return "Soble Opreator";
         }
+
+        public override bool HasAditionalForm()
+        {
+            return false;
+        }
+
+        public override void ShowFilterForm()
+        {
+            // it's not Have Any form 
+            throw new NotImplementedException();
+        }
     }
 }

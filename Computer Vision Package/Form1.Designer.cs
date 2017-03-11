@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComputerVision));
             this.ImagePath_txt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ResetPre_Image = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SelectedImage = new System.Windows.Forms.GroupBox();
             this.Selected_ImageSize = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -38,21 +41,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Selected_ImagePosition = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.FiltersList = new System.Windows.Forms.ComboBox();
-            this.Pixel_View_CheckBox = new System.Windows.Forms.CheckBox();
             this.LoadImage = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.Prevoius_Images = new System.Windows.Forms.ListBox();
-            this.ResetPre_Image = new System.Windows.Forms.Button();
+            this.FiltersList = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.SelectedImage.SuspendLayout();
             this.SuspendLayout();
             // 
             // ImagePath_txt
             // 
-            this.ImagePath_txt.Location = new System.Drawing.Point(6, 30);
+            this.ImagePath_txt.Location = new System.Drawing.Point(9, 43);
             this.ImagePath_txt.Name = "ImagePath_txt";
             this.ImagePath_txt.Size = new System.Drawing.Size(261, 20);
             this.ImagePath_txt.TabIndex = 1;
@@ -67,14 +66,43 @@
             this.groupBox1.Controls.Add(this.ImagePath_txt);
             this.groupBox1.Controls.Add(this.Prevoius_Images);
             this.groupBox1.Controls.Add(this.FiltersList);
-            this.groupBox1.Controls.Add(this.Pixel_View_CheckBox);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(651, 0);
+            this.groupBox1.Location = new System.Drawing.Point(631, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(276, 512);
+            this.groupBox1.Size = new System.Drawing.Size(276, 432);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controles";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(194, 148);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // ResetPre_Image
+            // 
+            this.ResetPre_Image.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ResetPre_Image.Location = new System.Drawing.Point(3, 203);
+            this.ResetPre_Image.Name = "ResetPre_Image";
+            this.ResetPre_Image.Size = new System.Drawing.Size(270, 23);
+            this.ResetPre_Image.TabIndex = 1;
+            this.ResetPre_Image.Text = "Resize List";
+            this.ResetPre_Image.UseVisualStyleBackColor = true;
+            this.ResetPre_Image.Click += new System.EventHandler(this.ResetPre_Image_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Image Path:";
             // 
             // SelectedImage
             // 
@@ -85,7 +113,7 @@
             this.SelectedImage.Controls.Add(this.Selected_ImagePosition);
             this.SelectedImage.Controls.Add(this.label2);
             this.SelectedImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SelectedImage.Location = new System.Drawing.Point(3, 306);
+            this.SelectedImage.Location = new System.Drawing.Point(3, 226);
             this.SelectedImage.Name = "SelectedImage";
             this.SelectedImage.Size = new System.Drawing.Size(270, 108);
             this.SelectedImage.TabIndex = 4;
@@ -146,30 +174,9 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Position :";
             // 
-            // FiltersList
-            // 
-            this.FiltersList.FormattingEnabled = true;
-            this.FiltersList.Location = new System.Drawing.Point(6, 108);
-            this.FiltersList.Name = "FiltersList";
-            this.FiltersList.Size = new System.Drawing.Size(261, 21);
-            this.FiltersList.TabIndex = 3;
-            this.FiltersList.Text = "List Of Filters";
-            this.FiltersList.SelectedIndexChanged += new System.EventHandler(this.FiltersList_SelectedIndexChanged);
-            // 
-            // Pixel_View_CheckBox
-            // 
-            this.Pixel_View_CheckBox.AutoSize = true;
-            this.Pixel_View_CheckBox.Location = new System.Drawing.Point(6, 85);
-            this.Pixel_View_CheckBox.Name = "Pixel_View_CheckBox";
-            this.Pixel_View_CheckBox.Size = new System.Drawing.Size(120, 17);
-            this.Pixel_View_CheckBox.TabIndex = 2;
-            this.Pixel_View_CheckBox.Text = "show Image In Pixel";
-            this.Pixel_View_CheckBox.UseVisualStyleBackColor = true;
-            this.Pixel_View_CheckBox.CheckedChanged += new System.EventHandler(this.Pixel_View_CheckBox_CheckedChanged);
-            // 
             // LoadImage
             // 
-            this.LoadImage.Location = new System.Drawing.Point(191, 56);
+            this.LoadImage.Location = new System.Drawing.Point(194, 69);
             this.LoadImage.Name = "LoadImage";
             this.LoadImage.Size = new System.Drawing.Size(75, 23);
             this.LoadImage.TabIndex = 3;
@@ -177,53 +184,35 @@
             this.LoadImage.UseVisualStyleBackColor = true;
             this.LoadImage.Click += new System.EventHandler(this.LoadImage_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Image Path:";
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(927, 512);
-            this.panel1.TabIndex = 5;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(191, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Clear";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Prevoius_Images
             // 
             this.Prevoius_Images.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Prevoius_Images.FormattingEnabled = true;
-            this.Prevoius_Images.Location = new System.Drawing.Point(3, 414);
+            this.Prevoius_Images.Location = new System.Drawing.Point(3, 334);
             this.Prevoius_Images.Name = "Prevoius_Images";
             this.Prevoius_Images.Size = new System.Drawing.Size(270, 95);
             this.Prevoius_Images.TabIndex = 0;
+            this.Prevoius_Images.SelectedIndexChanged += new System.EventHandler(this.Prevoius_Images_SelectedIndexChanged);
             // 
-            // ResetPre_Image
+            // FiltersList
             // 
-            this.ResetPre_Image.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ResetPre_Image.Location = new System.Drawing.Point(3, 283);
-            this.ResetPre_Image.Name = "ResetPre_Image";
-            this.ResetPre_Image.Size = new System.Drawing.Size(270, 23);
-            this.ResetPre_Image.TabIndex = 1;
-            this.ResetPre_Image.Text = "Resize List";
-            this.ResetPre_Image.UseVisualStyleBackColor = true;
-            this.ResetPre_Image.Click += new System.EventHandler(this.ResetPre_Image_Click);
+            this.FiltersList.FormattingEnabled = true;
+            this.FiltersList.Location = new System.Drawing.Point(9, 121);
+            this.FiltersList.Name = "FiltersList";
+            this.FiltersList.Size = new System.Drawing.Size(261, 21);
+            this.FiltersList.TabIndex = 3;
+            this.FiltersList.Text = "List Of Filters";
+            this.FiltersList.SelectedIndexChanged += new System.EventHandler(this.FiltersList_SelectedIndexChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(20, 60);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(887, 432);
+            this.panel1.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
             // 
             // ComputerVision
             // 
@@ -249,7 +238,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button LoadImage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox Pixel_View_CheckBox;
         private System.Windows.Forms.ComboBox FiltersList;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox SelectedImage;

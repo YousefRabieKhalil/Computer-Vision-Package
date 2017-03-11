@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ControlingClasses;
 using System.Drawing;
 using AdditionalForms;
+using HelperFunctionality;
 
 namespace Computer_Vision_Package.Filters
 {
@@ -14,11 +15,12 @@ namespace Computer_Vision_Package.Filters
         Bitmap ImageBitMap;
         public override void ApplayFilter(_Image ApplayImage)
         {
+           
             ImageBitMap = new Bitmap(ApplayImage.GetMainImage());
-            GammaFilterForm GammaForm = new GammaFilterForm();
-            GammaForm.ShowDialog();
-            SetGamma(GammaFilterForm.GammaRGB.X , GammaFilterForm.GammaRGB.Y , GammaFilterForm.GammaRGB.Z);
+            Vector3d GammaRGB = FilterInputs[0] as Vector3d;
+            SetGamma(GammaRGB.X , GammaRGB.Y , GammaRGB.Z);
             ApplayImage.SetFilterdBitMap(ref ImageBitMap);
+
         }
 
         public override string ToString()
@@ -50,6 +52,20 @@ namespace Computer_Vision_Package.Filters
                     (int)((255.0 * Math.Pow(i / 255.0, 1.0 / color)) + 0.5));
             }
             return gammaArray;
+        }
+
+        public override bool HasAditionalForm()
+        {
+            return true;
+        }
+
+        public override void ShowFilterForm()
+        {
+            GammaFilterForm FilterForm = new GammaFilterForm();
+            FilterForm.ShowDialog();
+
+            FilterInputs = new List<object>();
+            FilterInputs = FilterForm.FormAttribute;
         }
     }
 }

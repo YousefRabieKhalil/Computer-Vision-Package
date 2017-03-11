@@ -51,17 +51,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GammaFilter.cs">
+    <Compile Include="GammaFilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GammaFilter.Designer.cs">
-      <DependentUpon>GammaFilter.cs</DependentUpon>
+    <Compile Include="GammaFilterForm.Designer.cs">
+      <DependentUpon>GammaFilterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="GammaFilter.resx">
-      <DependentUpon>GammaFilter.cs</DependentUpon>
+    <EmbeddedResource Include="GammaFilterForm.resx">
+      <DependentUpon>GammaFilterForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +69,9 @@
       <Project>{2816653A-D41A-4ABA-98C0-F44D54C66DBC}</Project>
       <Name>HelperFunctionality</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

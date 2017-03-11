@@ -51,5 +51,15 @@ namespace Computer_Vision_Package.Filters
         {
             return "Mean Filter";
         }
+
+        public override bool HasAditionalForm()
+        {
+            return false;
+        }
+
+        public override void ShowFilterForm()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

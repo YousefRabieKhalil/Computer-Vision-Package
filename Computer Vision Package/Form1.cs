@@ -1,5 +1,6 @@
 ﻿using ControlingClasses;
 using HelperFunctionality;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -69,15 +70,13 @@ namespace Computer_Vision_Package
         {
             Prevoius_Images.Items.Clear();
         }
-
-        private void Pixel_View_CheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void FiltersList_SelectedIndexChanged(object sender, EventArgs e)
         {
             Filter selectedAlgorithm = this.FiltersList.SelectedItem as Filter;
+            if (selectedAlgorithm.HasAditionalForm())
+            {
+                selectedAlgorithm.ShowFilterForm();
+            }
             selectedAlgorithm.ApplayFilter(ImageControl);
 
             PictureBox WantToAdd = CreateNewPictureBox();
@@ -92,6 +91,7 @@ namespace Computer_Vision_Package
             //NewPic.BorderStyle = BorderStyle.FixedSingle;
             NewPic.MouseDown += pictureBox1_MouseDown;
             NewPic.MouseMove += pictureBox1_MouseMove;
+            
             NewPic.Name = "NO";
             panel1.Controls.Add(NewPic);
 
@@ -101,11 +101,23 @@ namespace Computer_Vision_Package
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            PictureBox pictureBox1 = sender as PictureBox;
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 MouseDownLocation = e.Location;
                 Selected_AppliedFilter.Text = (sender as PictureBox).Name;
                 Selected_ImageSize.Text = (sender as PictureBox).Size.ToString();
+            }
+            
+            else if (e.Button == MouseButtons.Right)
+            {
+                if (pictureBox1.Name == "NO")
+                    button1.PerformClick();
+                else
+                {
+                    panel1.Controls.Remove(pictureBox1);
+                }
+                panel1.Invalidate();
             }
         }
 
@@ -120,8 +132,13 @@ namespace Computer_Vision_Package
                 Selected_ImagePosition.Text = (sender as PictureBox).Location.ToString();
                 panel1.Invalidate();
             }
-        }
 
+        }
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+           
+
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics G = panel1.CreateGraphics();
@@ -147,6 +164,17 @@ namespace Computer_Vision_Package
             panel1.Invalidate();
 
             ImageControl = new _Image();
+        }
+
+        private void panel1_DoubleClick(object sender, EventArgs e)
+        {
+            ImagePath_txt.Text = "";
+            LoadImage.PerformClick();
+        }
+
+        private void Prevoius_Images_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ///[TODO] When Select A previous Image We can LOad it with the all Filter That used
         }
     }
 }

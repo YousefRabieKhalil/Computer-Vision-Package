@@ -43,7 +43,16 @@ namespace Computer_Vision_Package.Filters
             }
             ApplayImage.SetFilterdBitMap(ref ImageBitMap);
         }
-                
+
+        public override bool HasAditionalForm()
+        {
+            return false;
+        }
+
+        public override void ShowFilterForm()
+        {
+            throw new NotImplementedException();
+        }
 
         public override string ToString()
         {

@@ -1,0 +1,29 @@
+[33mcommit 36ecde38ebdfd5267a20c2486de37f57904d3579[m
+Author: Yousef Rabie <yousef.rabie@cis.asu.edu.eg>
+Date:   Mon Feb 27 02:21:19 2017 +0200
+
+    Adding A New project for additional forms , adding a Gamma filter , Red Filter , Green Filter and Blue Filter
+
+[33mcommit 20a619ad6dbcafbaa8e54efb78f0eec88f1087bb[m
+Author: Yousef Rabie <yousef.rabie@cis.asu.edu.eg>
+Date:   Sat Feb 25 23:44:16 2017 +0200
+
+    Adding Mean Filter Name in the GUI
+
+[33mcommit 9a251b634f999b605f3be54808a34983bc2dc471[m
+Author: Yousef Rabie <yousef.rabie@cis.asu.edu.eg>
+Date:   Sat Feb 25 20:20:20 2017 +0200
+
+    Adding The Convultion and PAdding Function and some changes in UI
+
+[33mcommit f12bb894e0f2ea90c6d2940bf766ba2f10413bbe[m
+Author: Yousef Rabie <yousef.rabie@cis.asu.edu.eg>
+Date:   Fri Feb 24 01:16:27 2017 +0200
+
+    Package After Applay Mean Filter And Add a Filters Folder And Add Project Of Functionality
+
+[33mcommit 671e5f0c0f2a212ffd82310d57baad2b0405407f[m
+Author: Yousef Rabie <yousef.rabie@cis.asu.edu.eg>
+Date:   Tue Feb 21 21:30:52 2017 +0200
+
+    This Is A first Commit
