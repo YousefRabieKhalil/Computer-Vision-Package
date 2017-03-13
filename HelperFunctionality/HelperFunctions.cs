@@ -240,5 +240,47 @@ namespace HelperFunctionality
 
             return V;
         }
+
+        public static Dictionary<double, int> ShowHistoGram( Bitmap bitmap)
+        {
+            Dictionary<double, int> Values = new Dictionary<double, int>();
+
+            for (int i = 0; i < bitmap.Width; i++)
+            {
+                for (int j = 0; j < bitmap.Height; j++)
+                {
+                    if (Values.ContainsKey(bitmap.GetPixel(i , j).R))
+                    {
+                        Values[bitmap.GetPixel(i, j).R]++;
+                    }
+                    else
+                    {
+                        Values.Add(bitmap.GetPixel(i, j).R , 0);
+                    }
+                }
+            }
+            return Values;
+        }
+        public static PointF GetMinMax(Bitmap ImageBitmap)
+        {
+            float MinValue = float.MaxValue;
+            float MaxValue = float.MinValue;
+            for (int i = 0; i < ImageBitmap.Width; i++)
+            {
+                for (int j = 0; j < ImageBitmap.Height; j++)
+                {
+                    if (ImageBitmap.GetPixel(i , j).R > MaxValue)
+                    {
+                        MaxValue = ImageBitmap.GetPixel(i , j).R;
+                    }
+
+                    if (ImageBitmap.GetPixel(i , j).R < MinValue)
+                    {
+                        MinValue = ImageBitmap.GetPixel(i , j).R;
+                    }
+                }
+            }
+            return new PointF(MinValue, MaxValue);
+        }
     }
 }

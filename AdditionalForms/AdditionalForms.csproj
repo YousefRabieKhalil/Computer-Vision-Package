@@ -43,6 +43,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,17 +52,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContrastStreaching.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContrastStreaching.Designer.cs">
+      <DependentUpon>ContrastStreaching.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnhancementThreshold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnhancementThreshold.Designer.cs">
+      <DependentUpon>EnhancementThreshold.cs</DependentUpon>
+    </Compile>
     <Compile Include="GammaFilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GammaFilterForm.Designer.cs">
       <DependentUpon>GammaFilterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="HistoGram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoGram.Designer.cs">
+      <DependentUpon>HistoGram.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ContrastStreaching.resx">
+      <DependentUpon>ContrastStreaching.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnhancementThreshold.resx">
+      <DependentUpon>EnhancementThreshold.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GammaFilterForm.resx">
       <DependentUpon>GammaFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoGram.resx">
+      <DependentUpon>HistoGram.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

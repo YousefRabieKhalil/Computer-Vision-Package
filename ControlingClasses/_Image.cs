@@ -18,7 +18,8 @@ namespace ControlingClasses
         public int ImageWidth, ImageHeight;
         private Bitmap ImageBitMap;
         private Bitmap FilterdImageBitMap;
-        
+
+        public PointF MinMaxGrayScale;
 
         public _Image()
         {
@@ -94,6 +95,7 @@ namespace ControlingClasses
         {
             MainImage = FilterdImage = Image.FromFile(ImageLocation);
             ImageBitMap = new Bitmap(MainImage);
+            CalculateMinMaxGrayScale();
             ImageWidth = ImageBitMap.Width;
             ImageHeight = ImageBitMap.Height;
         }
@@ -165,6 +167,9 @@ namespace ControlingClasses
                 //MainImage
             }
         }
-
+        public void CalculateMinMaxGrayScale()
+        {
+            MinMaxGrayScale = HelperFunctions.GetMinMax(ImageBitMap);
+        }
     }
 }

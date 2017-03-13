@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageEnhancement Algorithms\Contraststreaching.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="Filters\BlueColorFilter.cs" />
     <Compile Include="Filters\Gamma.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageEnhancement Algorithms\Threshold.cs" />
+    <Compile Include="ImageEnhancement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -110,6 +113,7 @@
       <Name>HelperFunctionality</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -31,10 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComputerVision));
             this.ImagePath_txt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Enhance_Combo = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.ResetPre_Image = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SelectedImage = new System.Windows.Forms.GroupBox();
+            this.MaxGrayScale = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.MinGrayScale = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.Selected_ImageSize = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Selected_AppliedFilter = new System.Windows.Forms.Label();
@@ -58,6 +63,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Enhance_Combo);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.ResetPre_Image);
             this.groupBox1.Controls.Add(this.label1);
@@ -74,9 +80,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controles";
             // 
+            // Enhance_Combo
+            // 
+            this.Enhance_Combo.FormattingEnabled = true;
+            this.Enhance_Combo.Location = new System.Drawing.Point(8, 125);
+            this.Enhance_Combo.Name = "Enhance_Combo";
+            this.Enhance_Combo.Size = new System.Drawing.Size(261, 21);
+            this.Enhance_Combo.TabIndex = 6;
+            this.Enhance_Combo.Text = "Enhancement Algorithms";
+            this.Enhance_Combo.SelectedIndexChanged += new System.EventHandler(this.Enhance_Combo_SelectedIndexChanged);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(194, 148);
+            this.button1.Location = new System.Drawing.Point(194, 152);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -87,7 +103,7 @@
             // ResetPre_Image
             // 
             this.ResetPre_Image.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ResetPre_Image.Location = new System.Drawing.Point(3, 203);
+            this.ResetPre_Image.Location = new System.Drawing.Point(3, 180);
             this.ResetPre_Image.Name = "ResetPre_Image";
             this.ResetPre_Image.Size = new System.Drawing.Size(270, 23);
             this.ResetPre_Image.TabIndex = 1;
@@ -106,6 +122,10 @@
             // 
             // SelectedImage
             // 
+            this.SelectedImage.Controls.Add(this.MaxGrayScale);
+            this.SelectedImage.Controls.Add(this.label8);
+            this.SelectedImage.Controls.Add(this.MinGrayScale);
+            this.SelectedImage.Controls.Add(this.label6);
             this.SelectedImage.Controls.Add(this.Selected_ImageSize);
             this.SelectedImage.Controls.Add(this.label5);
             this.SelectedImage.Controls.Add(this.Selected_AppliedFilter);
@@ -113,17 +133,53 @@
             this.SelectedImage.Controls.Add(this.Selected_ImagePosition);
             this.SelectedImage.Controls.Add(this.label2);
             this.SelectedImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SelectedImage.Location = new System.Drawing.Point(3, 226);
+            this.SelectedImage.Location = new System.Drawing.Point(3, 203);
             this.SelectedImage.Name = "SelectedImage";
-            this.SelectedImage.Size = new System.Drawing.Size(270, 108);
+            this.SelectedImage.Size = new System.Drawing.Size(270, 131);
             this.SelectedImage.TabIndex = 4;
             this.SelectedImage.TabStop = false;
             this.SelectedImage.Text = "Selected Image";
             // 
+            // MaxGrayScale
+            // 
+            this.MaxGrayScale.AutoSize = true;
+            this.MaxGrayScale.Location = new System.Drawing.Point(236, 106);
+            this.MaxGrayScale.Name = "MaxGrayScale";
+            this.MaxGrayScale.Size = new System.Drawing.Size(27, 13);
+            this.MaxGrayScale.TabIndex = 9;
+            this.MaxGrayScale.Text = "Max";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(142, 106);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Max(GrayScale) :";
+            // 
+            // MinGrayScale
+            // 
+            this.MinGrayScale.AutoSize = true;
+            this.MinGrayScale.Location = new System.Drawing.Point(97, 106);
+            this.MinGrayScale.Name = "MinGrayScale";
+            this.MinGrayScale.Size = new System.Drawing.Size(24, 13);
+            this.MinGrayScale.TabIndex = 7;
+            this.MinGrayScale.Text = "Min";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 106);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Min(GrayScale) :";
+            // 
             // Selected_ImageSize
             // 
             this.Selected_ImageSize.AutoSize = true;
-            this.Selected_ImageSize.Location = new System.Drawing.Point(38, 81);
+            this.Selected_ImageSize.Location = new System.Drawing.Point(38, 78);
             this.Selected_ImageSize.Name = "Selected_ImageSize";
             this.Selected_ImageSize.Size = new System.Drawing.Size(59, 13);
             this.Selected_ImageSize.TabIndex = 5;
@@ -132,7 +188,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 81);
+            this.label5.Location = new System.Drawing.Point(6, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 13);
             this.label5.TabIndex = 4;
@@ -197,7 +253,7 @@
             // FiltersList
             // 
             this.FiltersList.FormattingEnabled = true;
-            this.FiltersList.Location = new System.Drawing.Point(9, 121);
+            this.FiltersList.Location = new System.Drawing.Point(9, 98);
             this.FiltersList.Name = "FiltersList";
             this.FiltersList.Size = new System.Drawing.Size(261, 21);
             this.FiltersList.TabIndex = 3;
@@ -250,6 +306,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ResetPre_Image;
         private System.Windows.Forms.ListBox Prevoius_Images;
+        private System.Windows.Forms.ComboBox Enhance_Combo;
+        private System.Windows.Forms.Label MaxGrayScale;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label MinGrayScale;
+        private System.Windows.Forms.Label label6;
     }
 }
 

@@ -10,3 +10,6 @@ D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Additiona
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.dll
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.pdb
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.GammaFilterForm.resources
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.EnhancementThreshold.resources
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.ContrastStreaching.resources
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.HistoGram.resources

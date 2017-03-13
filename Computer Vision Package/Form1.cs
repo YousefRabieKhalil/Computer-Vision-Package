@@ -1,4 +1,5 @@
-﻿using ControlingClasses;
+﻿using AdditionalForms;
+using ControlingClasses;
 using HelperFunctionality;
 using MetroFramework.Forms;
 using System;
@@ -34,6 +35,15 @@ namespace Computer_Vision_Package
             foreach (var filter in FiltersType)
             {
                 this.FiltersList.Items.Add((Filter)Activator.CreateInstance(filter, null));
+            }
+
+            var assemblyTypesEnhancement = Assembly.GetAssembly(typeof(Filter)).GetTypes();
+
+            var EnhancementsType = assemblyTypesEnhancement.Where(x => !x.IsAbstract && x.IsSubclassOf(typeof(ImageEnhancement)));
+
+            foreach (var EnhanAlgo in EnhancementsType)
+            {
+                this.Enhance_Combo.Items.Add((ImageEnhancement)Activator.CreateInstance(EnhanAlgo, null));
             }
             MouseDownLocation = new Point();
         }
@@ -91,7 +101,7 @@ namespace Computer_Vision_Package
             //NewPic.BorderStyle = BorderStyle.FixedSingle;
             NewPic.MouseDown += pictureBox1_MouseDown;
             NewPic.MouseMove += pictureBox1_MouseMove;
-            
+            NewPic.DoubleClick += pictureBox1_DoubleClick;
             NewPic.Name = "NO";
             panel1.Controls.Add(NewPic);
 
@@ -104,9 +114,12 @@ namespace Computer_Vision_Package
             PictureBox pictureBox1 = sender as PictureBox;
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
+                PointF MinMaxGrayScale = HelperFunctions.GetMinMax(new Bitmap(pictureBox1.Image));
                 MouseDownLocation = e.Location;
                 Selected_AppliedFilter.Text = (sender as PictureBox).Name;
                 Selected_ImageSize.Text = (sender as PictureBox).Size.ToString();
+                MinGrayScale.Text = MinMaxGrayScale.X.ToString();
+                MaxGrayScale.Text = MinMaxGrayScale.Y.ToString();
             }
             
             else if (e.Button == MouseButtons.Right)
@@ -132,6 +145,14 @@ namespace Computer_Vision_Package
                 Selected_ImagePosition.Text = (sender as PictureBox).Location.ToString();
                 panel1.Invalidate();
             }
+
+        }
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            PictureBox pictureBox1 = sender as PictureBox;
+            Bitmap map = new Bitmap(pictureBox1.Image);
+            HistoGram Gram = new HistoGram(map);
+            Gram.ShowDialog();
 
         }
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -175,6 +196,20 @@ namespace Computer_Vision_Package
         private void Prevoius_Images_SelectedIndexChanged(object sender, EventArgs e)
         {
             ///[TODO] When Select A previous Image We can LOad it with the all Filter That used
+        }
+
+        private void Enhance_Combo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ImageEnhancement selectedAlgorithm = this.Enhance_Combo.SelectedItem as ImageEnhancement;
+            if (selectedAlgorithm.HasAditionalForm())
+            {
+                selectedAlgorithm.ShowEnhancementForm();
+            }
+            selectedAlgorithm.ApplayEnhancement(ImageControl);
+
+            PictureBox WantToAdd = CreateNewPictureBox();
+            WantToAdd.Name = selectedAlgorithm.ToString();
+            WantToAdd.Image = ImageControl.GetFilterdImageBitMap();
         }
     }
 }
