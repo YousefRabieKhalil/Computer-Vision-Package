@@ -70,6 +70,12 @@
     <Compile Include="GammaFilterForm.Designer.cs">
       <DependentUpon>GammaFilterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GaussianForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GaussianForm.Designer.cs">
+      <DependentUpon>GaussianForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HistoGram.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GammaFilterForm.resx">
       <DependentUpon>GammaFilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GaussianForm.resx">
+      <DependentUpon>GaussianForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HistoGram.resx">
       <DependentUpon>HistoGram.cs</DependentUpon>

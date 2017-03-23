@@ -11,9 +11,7 @@ using System.Windows.Forms;
 namespace Computer_Vision_Package.ImageEnhancement_Algorithms
 {
     class Threshold : ImageEnhancement
-    {
-
-        double FormInput;
+    {   double FormInput;
         Bitmap bitmap;
         PointF MinMax;
         public override void ApplayEnhancement(_Image ApplayImage)

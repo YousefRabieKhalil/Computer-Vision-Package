@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +11,249 @@ namespace HelperFunctionality
 {
     public class HelperFunctions
     {
+
+        /// <summary>
+        /// Multiple two Bitmap using Array Multiplication
+        /// </summary>
+        /// <param name="One"> The First Bitmap </param>
+        /// <param name="Two"> The Second Bitmap </param>
+        /// <returns> The Result OF multiplication </returns>
+        public static Bitmap MultibleTwoImage(Bitmap One , Bitmap Two)
+        {
+            Bitmap bitmap = One;
+            float[,] Arrayone = new float[One.Height, One.Width];
+            float[,] ArrayTwo = new float[One.Height, One.Width];
+
+            for (int i = 0; i < One.Height; i++)
+            {
+                for (int j = 0; j < One.Width; j++)
+                {
+                    Arrayone[i, j] = One.GetPixel(i, j).R;
+                    ArrayTwo[i, j] = Two.GetPixel(i, j).R;
+                }
+            }
+
+            int[,] ApplyedMultiplication = SobelsFilterMul(Arrayone, ArrayTwo, One.Width);
+
+            for (int i = 0; i < One.Height; i++)
+            {
+                for (int j = 0; j < One.Width; j++)
+                {
+                    int Rvalue = ApplyedMultiplication[i, j];
+
+                    if (Rvalue > 255)
+                        Rvalue = 255;
+                    else if (Rvalue < 0)
+                        Rvalue = 0;
+
+                    bitmap.SetPixel(i, j, Color.FromArgb(Rvalue , Rvalue , Rvalue));
+                }
+            }
+
+            return bitmap;
+
+
+
+         }
+
+
+        /// <summary>
+        /// Multiple Two float Array (Equal Size)
+        /// </summary>
+        /// <param name="SobelVertical"> First Array </param>
+        /// <param name="SobelHorizontal"> Second Array </param>
+        /// <param name="size"> Size OF Array </param>
+        /// <returns></returns>
+        public static int[,] SobelsFilterMul(float[,] SobelVertical, float[,] SobelHorizontal, int size)
+        {
+            int[,] SobelsMulOutput = new int[size, size];
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    SobelsMulOutput[j, i] = (int)(SobelVertical[j, i] * SobelHorizontal[j, i]);
+                }
+            }
+            return SobelsMulOutput;
+        }
+
+        /// <summary>
+        /// Mask Two Image Mean Multiply two Image using Bitmap Method
+        /// </summary>
+        /// <param name="SrcBitmap1"> Image Bitmap 1 </param>
+        /// <param name="SrcBitmap2"> Image Bitmap 2 </param>
+        /// <param name="Message"> Exception Message </param>
+        /// <returns> The Result Of Multiplication </returns>
+        public static Bitmap MultibleTwoImage(Bitmap SrcBitmap1, Bitmap SrcBitmap2, out string Message)
+        {
+            int width;
+            int height;
+
+            Message = "";
+
+            if (SrcBitmap1.Width < SrcBitmap2.Width)
+                width = SrcBitmap1.Width;
+            else
+                width = SrcBitmap2.Width;
+
+            if (SrcBitmap1.Height < SrcBitmap2.Height)
+                height = SrcBitmap1.Height;
+            else
+                height = SrcBitmap2.Height;
+
+            Bitmap bitmap = new Bitmap(width, height);
+            int clr1, clr2;
+
+            try
+            {
+                BitmapData Src1Data = SrcBitmap1.LockBits(new Rectangle(0, 0, SrcBitmap1.Width, SrcBitmap1.Height), ImageLockMode.ReadOnly, PixelFormat.Format24bppRgb);
+
+                BitmapData Src2Data = SrcBitmap2.LockBits(new Rectangle(0, 0, SrcBitmap2.Width, SrcBitmap2.Height), ImageLockMode.ReadOnly, PixelFormat.Format24bppRgb);
+
+                BitmapData DestData = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.WriteOnly, PixelFormat.Format24bppRgb);
+
+
+                int xOffset = 3;
+                unsafe
+                {
+                    for (int col = 0; col < bitmap.Height - 1; col++)
+                    {
+                        byte* Src1Ptr = (byte*)Src1Data.Scan0 + col * Src1Data.Stride;
+                        byte* Src2Ptr = (byte*)Src2Data.Scan0 + col * Src2Data.Stride;
+                        byte* DestPtr = (byte*)DestData.Scan0 + col * DestData.Stride;
+
+                        for (int row = 0; row < bitmap.Width - 1; row++)
+                        {
+                            clr1 = (Src1Ptr[row * xOffset] + Src1Ptr[row * xOffset + 1] + Src1Ptr[row * xOffset + 2]) / 3;
+                            clr2 = (Src2Ptr[row * xOffset] + Src2Ptr[row * xOffset + 1] + Src2Ptr[row * xOffset + 2]) / 3;
+
+                            clr1 *= clr2;
+
+                            if (clr1 == 0)
+                            {
+                                DestPtr[row * xOffset] = (byte)(0);
+                                DestPtr[row * xOffset + 1] = (byte)(0);
+                                DestPtr[row * xOffset + 2] = (byte)(0);
+                            }
+                            else
+                            {
+                                DestPtr[row * xOffset] = (byte)(Src2Ptr[row * xOffset]);
+                                DestPtr[row * xOffset + 1] = (byte)(Src2Ptr[row * xOffset + 1]);
+                                DestPtr[row * xOffset + 2] = (byte)(Src2Ptr[row * xOffset + 2]);
+                            }
+                        }
+                    }
+                }
+
+                bitmap.UnlockBits(DestData);
+                SrcBitmap1.UnlockBits(Src1Data);
+                SrcBitmap2.UnlockBits(Src2Data);
+
+                SrcBitmap1.Dispose();
+                SrcBitmap2.Dispose();
+            }
+            catch (Exception ex)
+            {
+                Message = ex.Message;
+            }
+
+            return bitmap;
+        }
+        /// <summary>
+        /// To Build A Gaussian Matrix From Kernel Size 
+        /// </summary>
+        /// <param name="Size"> The Size Of Kernel </param>
+        /// <returns> The Gaussian Matrix </returns>
+
+        public static double[,] BuildGaussianMatrix(int Size  , double Sigma)
+        {
+            double sigma = Sigma;
+            int W = Size;
+            double[,] kernel = new double[W,W];
+            double mean = W / 2;
+            double sum = 0.0; // For accumulating the kernel values
+
+            for (int x = 0; x < W; ++x)
+            {
+                for (int y = 0; y < W; ++y)
+                {
+                    kernel[x, y] = Math.Exp(-0.5 * (Math.Pow((x - mean) / sigma, 2.0) + Math.Pow((y - mean) / sigma, 2.0)))
+                                     / (2 * Math.PI * sigma * sigma);
+
+                    // Accumulate the kernel values
+                    sum += kernel[x, y];
+                }
+            }
+
+            // Normalize the kernel
+            for (int x = 0; x < W; ++x)
+                for (int y = 0; y < W; ++y)
+                    kernel[x,y] /= sum;
+
+            return kernel;
+        }
+
+        /// <summary>
+        /// Applay Padding using marshal Conversion
+        /// </summary>
+        /// <param name="ImageBitMap"> The Bit Map Want to Padding </param>
+        /// <param name="KernalSize"> The Size Padding Items </param>
+        /// <param name="NewWidth"> out of the new width of bitmap </param>
+        /// <param name="Newheight"> out pf the new height of bitmap </param>
+        /// <returns> The New image value after applay padding </returns>
+        public static Vector3[,] PaddingWithSimpleImplement(Bitmap ImageBitMap, int KernalSize, out int NewWidth, out int Newheight)
+        {
+            int w = ImageBitMap.Width;
+            int h = ImageBitMap.Height;
+            int wp = w + 2 * KernalSize;
+            int hp = h + 2 * KernalSize;
+
+            NewWidth = wp;
+            Newheight = hp;
+            Vector3[,] RGBvalues = new Vector3[hp , wp];
+
+            Bitmap ri = new Bitmap(wp, hp);
+            BitmapData rd = ri.LockBits(new Rectangle(0, 0, wp, hp),
+                ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+            BitmapData id = ImageBitMap.LockBits(new Rectangle(0, 0, w, h),
+                ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+            int imgb = id.Stride * id.Height;
+            int borb = rd.Stride * rd.Height;
+            byte[] imga = new byte[imgb];
+            byte[] bora = new byte[borb];
+            for (int i = 3; i < borb; i += 4)
+            {
+                bora[i] = 255;
+            }
+            Marshal.Copy(id.Scan0, imga, 0, imgb);
+            ImageBitMap.UnlockBits(id);
+            for (int y = 0; y < h; y++)
+            {
+                for (int x = 0; x < w; x++)
+                {
+                    int ip = y * id.Stride + x * 4;
+                    int rp = y * rd.Stride + x * 4;
+                    for (int i = 0; i < 3; i++)
+                    {
+                        bora[(rd.Stride + 4) * KernalSize + rp + i] = imga[ip + i];
+                    }
+                }
+            }
+            Marshal.Copy(bora, 0, rd.Scan0, borb);
+            ri.UnlockBits(rd);
+
+
+            for (int i = 0; i < hp; i++)
+            {
+                for (int j = 0; j < wp; j++)
+                {
+                    RGBvalues[i , j] = new Vector3(ri.GetPixel(j, i).R, ri.GetPixel(j, i).G, ri.GetPixel(j, i).B);
+                }
+            }
+
+            return RGBvalues;
+        }
+
         /// <summary>
         /// Applay Padding To an Image
         /// </summary>
@@ -28,10 +273,10 @@ namespace HelperFunctionality
                 for (int j = 0; j < NewWidth; j++)
                 {
 
-                    if ((i >= 0 && i < ((int)KernalSize / 2))
+                    if (   (i >= 0 && i < ((int)KernalSize / 2))
                         || (j >= 0 && j < ((int)KernalSize / 2))
-                        || (i >= Newheight - ((int)KernalSize / 2) && i < Newheight)
-                        || (j >= NewWidth - ((int)KernalSize / 2) && j < NewWidth)
+                        || (i > ImageBitMap.Height && i < Newheight)
+                        || (j > ImageBitMap.Width && j < NewWidth)
                         )
 
                     {
@@ -39,7 +284,18 @@ namespace HelperFunctionality
                     }
                     else
                     {
-                        RGBvalues[i, j] = new Vector3(ImageBitMap.GetPixel(i - ((int)KernalSize / 2), j - ((int)KernalSize / 2)).R, ImageBitMap.GetPixel(i - ((int)KernalSize / 2), j - ((int)KernalSize / 2)).G, ImageBitMap.GetPixel(i - ((int)KernalSize / 2), j - ((int)KernalSize / 2)).B);
+                        
+
+                        int Iindex = j - (((int)KernalSize / 2));
+                        int Jindex = i - ((int)KernalSize / 2);
+
+                        //if (Jindex >= Newheight)
+                        //    Jindex = Newheight - 1;
+                        //if (Iindex >= NewWidth)
+                        //    Iindex = NewWidth - 1;
+
+                        Color CurentBitmapPixel = ImageBitMap.GetPixel(Iindex ,Jindex );
+                        RGBvalues[i, j] = new Vector3(CurentBitmapPixel.R , CurentBitmapPixel.G , CurentBitmapPixel.B);
                     }
                 }
             }
@@ -86,7 +342,14 @@ namespace HelperFunctionality
                         }
                         indexi++;
                     }
-                    ImageBitmap.SetPixel(i - 1, j - 1, Color.FromArgb((int)SumR, (int)SumG, (int)SumB));
+
+                    if (SumB > 255) SumB = 255;
+                    else if (SumB < 0) SumB = 0;
+                    if (SumG > 255) SumG = 255;
+                    else if (SumG < 0) SumG = 0;
+                    if (SumR > 255) SumR = 255;
+                    else if (SumR < 0) SumR = 0;
+                    ImageBitmap.SetPixel(j - 1, i - 1, Color.FromArgb((int)SumR, (int)SumG, (int)SumB));
                 }
             }
         }
@@ -102,9 +365,19 @@ namespace HelperFunctionality
         /// <param name="height"> The height Of an Image After Applay Padding </param>
         public static void Convolution(Bitmap ImageBitmap, int KernalSize, double[,] Ymatrix , double[,] Xmatrix, Vector3[,] RGBvalues, int width, int height)
         {
-
-            Vector3 MinVector = GetMin(RGBvalues, width, height);
-            Vector3 MaxVector = GetMax(RGBvalues, width, height);
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    if (RGBvalues[i, j].R == 0 && RGBvalues[i, j].G == 0 && RGBvalues[i, j].B == 0)
+                        Console.Write("0");
+                    else
+                        Console.Write("A");
+                }
+                Console.WriteLine();
+            }
+            //Vector3 MinVector = GetMin(RGBvalues, width, height);
+            //Vector3 MaxVector = GetMax(RGBvalues, width, height);
             int AdditionColRow = KernalSize / 2;
             for (int i = AdditionColRow; i < height - AdditionColRow * 2; i++)
             {
@@ -147,7 +420,7 @@ namespace HelperFunctionality
                     else if (gt < 0) gt = 0;
                     if (rt > 255) rt = 255;
                     else if (rt < 0) rt = 0;
-                    ImageBitmap.SetPixel(i - 1, j - 1, Color.FromArgb((int)rt, (int)gt, (int)bt));
+                    ImageBitmap.SetPixel(j - 1, i - 1, Color.FromArgb((int)rt, (int)gt, (int)bt));
                 }
             }
         }
@@ -240,7 +513,11 @@ namespace HelperFunctionality
 
             return V;
         }
-
+        /// <summary>
+        /// Show the Histograph for specifed Image
+        /// </summary>
+        /// <param name="bitmap"> Image Bitmap Want To Show Histogram For </param>
+        /// <returns>  </returns>
         public static Dictionary<double, int> ShowHistoGram( Bitmap bitmap)
         {
             Dictionary<double, int> Values = new Dictionary<double, int>();

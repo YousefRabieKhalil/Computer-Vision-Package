@@ -5,6 +5,3 @@ D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Controlin
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\ControlingClasses\obj\Debug\ControlingClasses.csprojResolveAssemblyReference.cache
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\ControlingClasses\obj\Debug\ControlingClasses.dll
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\ControlingClasses\obj\Debug\ControlingClasses.pdb
-D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\ControlingClasses\bin\Debug\MetroFramework.Design.dll
-D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\ControlingClasses\bin\Debug\MetroFramework.dll
-D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\ControlingClasses\bin\Debug\MetroFramework.Fonts.dll

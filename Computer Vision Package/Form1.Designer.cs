@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ComputerVision));
             this.ImagePath_txt = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.detec_combo = new System.Windows.Forms.ComboBox();
             this.Enhance_Combo = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.ResetPre_Image = new System.Windows.Forms.Button();
@@ -63,6 +64,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.detec_combo);
             this.groupBox1.Controls.Add(this.Enhance_Combo);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.ResetPre_Image);
@@ -73,12 +75,22 @@
             this.groupBox1.Controls.Add(this.Prevoius_Images);
             this.groupBox1.Controls.Add(this.FiltersList);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox1.Location = new System.Drawing.Point(631, 60);
+            this.groupBox1.Location = new System.Drawing.Point(637, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(276, 432);
+            this.groupBox1.Size = new System.Drawing.Size(276, 478);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controles";
+            // 
+            // detec_combo
+            // 
+            this.detec_combo.FormattingEnabled = true;
+            this.detec_combo.Location = new System.Drawing.Point(9, 152);
+            this.detec_combo.Name = "detec_combo";
+            this.detec_combo.Size = new System.Drawing.Size(261, 21);
+            this.detec_combo.TabIndex = 7;
+            this.detec_combo.Text = "Object Detection Algorithm";
+            this.detec_combo.SelectedIndexChanged += new System.EventHandler(this.detec_combo_SelectedIndexChanged);
             // 
             // Enhance_Combo
             // 
@@ -92,7 +104,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(194, 152);
+            this.button1.Location = new System.Drawing.Point(198, 182);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -103,7 +115,7 @@
             // ResetPre_Image
             // 
             this.ResetPre_Image.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ResetPre_Image.Location = new System.Drawing.Point(3, 180);
+            this.ResetPre_Image.Location = new System.Drawing.Point(3, 226);
             this.ResetPre_Image.Name = "ResetPre_Image";
             this.ResetPre_Image.Size = new System.Drawing.Size(270, 23);
             this.ResetPre_Image.TabIndex = 1;
@@ -133,7 +145,7 @@
             this.SelectedImage.Controls.Add(this.Selected_ImagePosition);
             this.SelectedImage.Controls.Add(this.label2);
             this.SelectedImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SelectedImage.Location = new System.Drawing.Point(3, 203);
+            this.SelectedImage.Location = new System.Drawing.Point(3, 249);
             this.SelectedImage.Name = "SelectedImage";
             this.SelectedImage.Size = new System.Drawing.Size(270, 131);
             this.SelectedImage.TabIndex = 4;
@@ -244,7 +256,7 @@
             // 
             this.Prevoius_Images.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Prevoius_Images.FormattingEnabled = true;
-            this.Prevoius_Images.Location = new System.Drawing.Point(3, 334);
+            this.Prevoius_Images.Location = new System.Drawing.Point(3, 380);
             this.Prevoius_Images.Name = "Prevoius_Images";
             this.Prevoius_Images.Size = new System.Drawing.Size(270, 95);
             this.Prevoius_Images.TabIndex = 0;
@@ -265,7 +277,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(20, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(887, 432);
+            this.panel1.Size = new System.Drawing.Size(893, 478);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
@@ -274,7 +286,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 512);
+            this.ClientSize = new System.Drawing.Size(933, 558);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -311,6 +323,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label MinGrayScale;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox detec_combo;
     }
 }
 

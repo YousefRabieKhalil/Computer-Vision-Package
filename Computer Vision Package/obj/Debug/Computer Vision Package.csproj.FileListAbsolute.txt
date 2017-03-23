@@ -21,7 +21,5 @@ D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer 
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\ControlingClasses.dll
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\ControlingClasses.pdb
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\AdditionalForms.dll
-D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\MetroFramework.dll
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\AdditionalForms.pdb
-D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\MetroFramework.Design.dll
-D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\MetroFramework.Fonts.dll
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Computer Vision Package\bin\Debug\CVObjectDetection.dll

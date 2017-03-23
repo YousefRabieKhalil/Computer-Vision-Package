@@ -2,4 +2,3 @@ D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\HelperFun
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\HelperFunctionality\bin\Debug\HelperFunctionality.pdb
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\HelperFunctionality\obj\Debug\HelperFunctionality.dll
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\HelperFunctionality\obj\Debug\HelperFunctionality.pdb
-D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\HelperFunctionality\obj\Debug\HelperFunctionality.csprojResolveAssemblyReference.cache

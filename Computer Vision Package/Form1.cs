@@ -1,4 +1,5 @@
 ﻿using AdditionalForms;
+using Computer_Vision_Package.Objects_Detection_Algorithms;
 using ControlingClasses;
 using HelperFunctionality;
 using MetroFramework.Forms;
@@ -37,13 +38,22 @@ namespace Computer_Vision_Package
                 this.FiltersList.Items.Add((Filter)Activator.CreateInstance(filter, null));
             }
 
-            var assemblyTypesEnhancement = Assembly.GetAssembly(typeof(Filter)).GetTypes();
+            var assemblyTypesEnhancement = Assembly.GetAssembly(typeof(ImageEnhancement)).GetTypes();
 
             var EnhancementsType = assemblyTypesEnhancement.Where(x => !x.IsAbstract && x.IsSubclassOf(typeof(ImageEnhancement)));
 
             foreach (var EnhanAlgo in EnhancementsType)
             {
                 this.Enhance_Combo.Items.Add((ImageEnhancement)Activator.CreateInstance(EnhanAlgo, null));
+            }
+
+            var assemblyTypesDetection = Assembly.GetAssembly(typeof(ObjectDetectionAlgorithm)).GetTypes();
+
+            var DetectionType = assemblyTypesDetection.Where(x => !x.IsAbstract && x.IsSubclassOf(typeof(ObjectDetectionAlgorithm)));
+
+            foreach (var DetectionAlgo in DetectionType)
+            {
+                this.detec_combo.Items.Add((ObjectDetectionAlgorithm)Activator.CreateInstance(DetectionAlgo, null));
             }
             MouseDownLocation = new Point();
         }
@@ -211,5 +221,21 @@ namespace Computer_Vision_Package
             WantToAdd.Name = selectedAlgorithm.ToString();
             WantToAdd.Image = ImageControl.GetFilterdImageBitMap();
         }
+
+        private void detec_combo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HarrisDetectionAlgorithm selectedAlgorithm = this.detec_combo.SelectedItem as HarrisDetectionAlgorithm;
+            if (selectedAlgorithm.HasAditionalForm())
+            {
+                selectedAlgorithm.ShowEnhancementForm();
+            }
+            selectedAlgorithm.ApplayObjectDetection(ImageControl);
+
+            PictureBox WantToAdd = CreateNewPictureBox();
+            WantToAdd.Name = selectedAlgorithm.ToString();
+            WantToAdd.Image = ImageControl.GetFilterdImageBitMap();
+        }
     }
 }
+
+// [TODO] hanshel el 7agat ali btkkrr fe el code we n7otha fe Function lw7dha Example el Selectedindex for every combobox

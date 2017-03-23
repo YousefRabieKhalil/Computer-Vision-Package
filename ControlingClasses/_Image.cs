@@ -12,7 +12,7 @@ namespace ControlingClasses
 {
     public class _Image
     {
-        private string ImageLocation;
+        public string ImageLocation;
         private Image MainImage, FilterdImage;
         public List<List<Vector3>> RGBVaues;
         public int ImageWidth, ImageHeight;
@@ -86,6 +86,12 @@ namespace ControlingClasses
         }
         #endregion
 
+
+        public void ReplaceMainImageWithiltedImage()
+        {
+            MainImage = FilterdImage;
+            ImageBitMap = FilterdImageBitMap;
+        }
 
         /// <summary>
         /// Load The image From A specific Location 

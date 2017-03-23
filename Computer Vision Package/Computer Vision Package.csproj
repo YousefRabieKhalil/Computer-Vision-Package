@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BDD9EAEF-B6B3-4068-9B6A-A49D011591E7}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Computer_Vision_Package</RootNamespace>
     <AssemblyName>Computer Vision Package</AssemblyName>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,7 +33,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CVObjectDetection">
+      <HintPath>..\..\CVObjectDetection\for_redistribution_files_only\CVObjectDetection.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Login Form\Login Form\Login Form\MetroFramework.dll</HintPath>
@@ -56,6 +63,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters\GaussianFilter.cs" />
+    <Compile Include="Filters\X_Sobel.cs" />
+    <Compile Include="Filters\Y_Sobel.cs" />
     <Compile Include="ImageEnhancement Algorithms\Contraststreaching.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="Filters\BlueColorFilter.cs" />
@@ -72,6 +82,8 @@
     </Compile>
     <Compile Include="ImageEnhancement Algorithms\Threshold.cs" />
     <Compile Include="ImageEnhancement.cs" />
+    <Compile Include="ObjectDetectionAlgorithm.cs" />
+    <Compile Include="Objects Detection Algorithms\HarrisDetectionAlgorithm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -113,7 +125,9 @@
       <Name>HelperFunctionality</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
