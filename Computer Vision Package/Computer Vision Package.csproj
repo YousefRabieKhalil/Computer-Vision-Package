@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageEnhancement Algorithms\Bimodal threshold.cs" />
     <Compile Include="Filters\GaussianFilter.cs" />
     <Compile Include="Filters\X_Sobel.cs" />
     <Compile Include="Filters\Y_Sobel.cs" />
@@ -80,6 +81,8 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageEnhancement Algorithms\HistogramThreshold.cs" />
+    <Compile Include="ImageEnhancement Algorithms\Multimodal Histogram.cs" />
     <Compile Include="ImageEnhancement Algorithms\Threshold.cs" />
     <Compile Include="ImageEnhancement.cs" />
     <Compile Include="ObjectDetectionAlgorithm.cs" />

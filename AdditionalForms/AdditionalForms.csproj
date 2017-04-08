@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BimodalThresholdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BimodalThresholdForm.Designer.cs">
+      <DependentUpon>BimodalThresholdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContrastStreaching.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,9 +88,18 @@
     <Compile Include="HistoGram.Designer.cs">
       <DependentUpon>HistoGram.cs</DependentUpon>
     </Compile>
+    <Compile Include="MultimodalHistogramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultimodalHistogramForm.Designer.cs">
+      <DependentUpon>MultimodalHistogramForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BimodalThresholdForm.resx">
+      <DependentUpon>BimodalThresholdForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContrastStreaching.resx">
       <DependentUpon>ContrastStreaching.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HistoGram.resx">
       <DependentUpon>HistoGram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultimodalHistogramForm.resx">
+      <DependentUpon>MultimodalHistogramForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

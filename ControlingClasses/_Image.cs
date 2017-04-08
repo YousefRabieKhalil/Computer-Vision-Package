@@ -109,7 +109,7 @@ namespace ControlingClasses
         /// <summary>
         /// This Function Calculate RGB Values And Put it in RGBvalues List
         /// </summary>
-        private void CalculateRGBValues()
+        public void CalculateRGBValues()
         {
             for (int i = 0; i < ImageBitMap.Width; i++)
             {

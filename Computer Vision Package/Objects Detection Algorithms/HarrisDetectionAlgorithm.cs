@@ -42,7 +42,7 @@ namespace Computer_Vision_Package.Objects_Detection_Algorithms
 
             // Get The Multipication OF 2 Image
             string Message = "";
-            Bitmap MultBitMap =  HelperFunctions.MaskImagePtr(XsobelImage.GetFilterdImageBitMap(), YsobelImage.GetFilterdImageBitMap() , out Message);
+            Bitmap MultBitMap =  HelperFunctions. MultibleTwoImage(XsobelImage.GetFilterdImageBitMap(), YsobelImage.GetFilterdImageBitMap() , out Message);
             _Image MultiImage = new _Image();
             MultiImage.SetFilterdBitMap(ref MultBitMap);
             MultiImage.ReplaceMainImageWithiltedImage();
