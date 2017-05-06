@@ -363,7 +363,7 @@ namespace HelperFunctionality
         /// <param name="RGBvalues"> The RGB Values </param>
         /// <param name="width"> The Width of an Image After Applay Padding </param>
         /// <param name="height"> The height Of an Image After Applay Padding </param>
-        public static void Convolution(Bitmap ImageBitmap, int KernalSize, double[,] Ymatrix , double[,] Xmatrix, Vector3[,] RGBvalues, int width, int height)
+        public static void Convolution(Bitmap ImageBitmap, int KernalSize, double[,] Ymatrix , double[,] Xmatrix, Vector3[,] RGBvalues  , int width, int height)
         {
             for (int i = 0; i < height; i++)
             {

@@ -13,3 +13,4 @@ D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\Additiona
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.GaussianForm.resources
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.BimodalThresholdForm.resources
 D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.MultimodalHistogramForm.resources
+D:\Material\Year 4\Second Term\Computer Vision\Computer Vision Package\AdditionalForms\obj\Debug\AdditionalForms.StrucutureElemntChoose.resources

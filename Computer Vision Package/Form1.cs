@@ -235,6 +235,28 @@ namespace Computer_Vision_Package
             WantToAdd.Name = selectedAlgorithm.ToString();
             WantToAdd.Image = ImageControl.GetFilterdImageBitMap();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog OFD = new OpenFileDialog();
+            OFD.Multiselect = true;
+            OFD.Title = "Please Choose Image To Applay Filters";
+            OFD.Filter = "Images|*.png;*.jpg;*.jpeg";
+            button1.PerformClick();
+            if (OFD.ShowDialog() == DialogResult.OK)
+            {
+                foreach (var item in OFD.FileNames)
+                {
+
+                    Image Im = Image.FromFile(item);
+
+                    Bitmap map = new Bitmap(Im);
+                    HistoGram Gram = new HistoGram(map);
+                    Gram.Show();
+                }
+
+            }
+        }
     }
 }
 

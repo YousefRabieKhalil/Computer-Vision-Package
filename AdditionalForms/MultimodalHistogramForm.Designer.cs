@@ -53,6 +53,11 @@
             // Dvalue
             // 
             this.Dvalue.Location = new System.Drawing.Point(418, 37);
+            this.Dvalue.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.Dvalue.Name = "Dvalue";
             this.Dvalue.Size = new System.Drawing.Size(54, 20);
             this.Dvalue.TabIndex = 1;
@@ -60,6 +65,11 @@
             // Start
             // 
             this.Start.Location = new System.Drawing.Point(100, 32);
+            this.Start.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(56, 20);
             this.Start.TabIndex = 2;
@@ -67,6 +77,11 @@
             // End
             // 
             this.End.Location = new System.Drawing.Point(271, 32);
+            this.End.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.End.Name = "End";
             this.End.Size = new System.Drawing.Size(46, 20);
             this.End.TabIndex = 3;

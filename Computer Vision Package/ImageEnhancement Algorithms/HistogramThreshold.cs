@@ -16,7 +16,7 @@ namespace Computer_Vision_Package.ImageEnhancement_Algorithms
             Dictionary<double, int> values = HelperFunctionality.HelperFunctions.ShowHistoGram(ImageBitmap);
             int MaxValue = values.Values.Max();
             double ThresholdValue = values.FirstOrDefault(x => x.Value == MaxValue).Key;
-
+            Console.WriteLine(ThresholdValue);
             for (int i = 0; i < ApplayImage.ImageHeight; i++)
             {
                 for (int j = 0; j < ApplayImage.ImageWidth; j++)

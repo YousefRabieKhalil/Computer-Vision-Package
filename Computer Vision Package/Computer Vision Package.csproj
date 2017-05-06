@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filters\Dilation.cs" />
     <Compile Include="ImageEnhancement Algorithms\Bimodal threshold.cs" />
     <Compile Include="Filters\GaussianFilter.cs" />
     <Compile Include="Filters\X_Sobel.cs" />

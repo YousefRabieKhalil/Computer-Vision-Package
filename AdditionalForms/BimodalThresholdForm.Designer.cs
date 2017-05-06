@@ -50,6 +50,11 @@
             // T0
             // 
             this.T0.Location = new System.Drawing.Point(59, 42);
+            this.T0.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.T0.Name = "T0";
             this.T0.Size = new System.Drawing.Size(70, 20);
             this.T0.TabIndex = 1;
@@ -75,6 +80,11 @@
             // T1
             // 
             this.T1.Location = new System.Drawing.Point(189, 44);
+            this.T1.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.T1.Name = "T1";
             this.T1.Size = new System.Drawing.Size(70, 20);
             this.T1.TabIndex = 3;

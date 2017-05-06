@@ -30,10 +30,10 @@ namespace Computer_Vision_Package.ImageEnhancement_Algorithms
                     {
                         NewBitMap.SetPixel(j, i, Color.FromArgb(255, 255, 255));
                     }
-                    else
-                    {
-                        NewBitMap.SetPixel(j, i, Color.FromArgb((int)DefultValue, (int)DefultValue, (int)DefultValue));
-                    }
+                    //else
+                    //{
+                    //    NewBitMap.SetPixel(j, i, Color.FromArgb((int)DefultValue, (int)DefultValue, (int)DefultValue));
+                    //}
                 }
             }
             ApplayImage.SetFilterdBitMap(ref NewBitMap);

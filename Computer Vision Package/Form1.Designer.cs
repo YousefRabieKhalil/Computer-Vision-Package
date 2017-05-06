@@ -51,6 +51,7 @@
             this.Prevoius_Images = new System.Windows.Forms.ListBox();
             this.FiltersList = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SelectedImage.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +65,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.detec_combo);
             this.groupBox1.Controls.Add(this.Enhance_Combo);
             this.groupBox1.Controls.Add(this.button1);
@@ -77,7 +79,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox1.Location = new System.Drawing.Point(637, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(276, 478);
+            this.groupBox1.Size = new System.Drawing.Size(276, 549);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controles";
@@ -115,7 +117,7 @@
             // ResetPre_Image
             // 
             this.ResetPre_Image.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ResetPre_Image.Location = new System.Drawing.Point(3, 226);
+            this.ResetPre_Image.Location = new System.Drawing.Point(3, 297);
             this.ResetPre_Image.Name = "ResetPre_Image";
             this.ResetPre_Image.Size = new System.Drawing.Size(270, 23);
             this.ResetPre_Image.TabIndex = 1;
@@ -145,7 +147,7 @@
             this.SelectedImage.Controls.Add(this.Selected_ImagePosition);
             this.SelectedImage.Controls.Add(this.label2);
             this.SelectedImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SelectedImage.Location = new System.Drawing.Point(3, 249);
+            this.SelectedImage.Location = new System.Drawing.Point(3, 320);
             this.SelectedImage.Name = "SelectedImage";
             this.SelectedImage.Size = new System.Drawing.Size(270, 131);
             this.SelectedImage.TabIndex = 4;
@@ -256,7 +258,7 @@
             // 
             this.Prevoius_Images.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Prevoius_Images.FormattingEnabled = true;
-            this.Prevoius_Images.Location = new System.Drawing.Point(3, 380);
+            this.Prevoius_Images.Location = new System.Drawing.Point(3, 451);
             this.Prevoius_Images.Name = "Prevoius_Images";
             this.Prevoius_Images.Size = new System.Drawing.Size(270, 95);
             this.Prevoius_Images.TabIndex = 0;
@@ -277,16 +279,26 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(20, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(893, 478);
+            this.panel1.Size = new System.Drawing.Size(893, 549);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 268);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(270, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Show HistoGram for Multible Image";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ComputerVision
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 558);
+            this.ClientSize = new System.Drawing.Size(933, 629);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -324,6 +336,7 @@
         private System.Windows.Forms.Label MinGrayScale;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox detec_combo;
+        private System.Windows.Forms.Button button2;
     }
 }
 

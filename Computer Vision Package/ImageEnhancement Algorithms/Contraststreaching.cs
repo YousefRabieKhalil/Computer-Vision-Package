@@ -22,7 +22,7 @@ namespace Computer_Vision_Package
                 for (int j = 0; j < bitmap.Height; j++)
                 {
                     double PixelValue = bitmap.GetPixel(i, j).R;
-                    int floatValue = (int)Math.Round((Math.Pow(2, FormInput) * ((PixelValue - MinMax.X) / (MinMax.Y - MinMax.X))));
+                    int floatValue = (int)Math.Round(((Math.Pow(2, FormInput)-1) * ((PixelValue - MinMax.X) / (MinMax.Y - MinMax.X))));
                     bitmap.SetPixel(i, j,Color.FromArgb(floatValue , floatValue , floatValue));
                 }
             }

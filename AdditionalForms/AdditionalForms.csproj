@@ -95,6 +95,12 @@
       <DependentUpon>MultimodalHistogramForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StrucutureElemntChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StrucutureElemntChoose.Designer.cs">
+      <DependentUpon>StrucutureElemntChoose.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BimodalThresholdForm.resx">
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MultimodalHistogramForm.resx">
       <DependentUpon>MultimodalHistogramForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StrucutureElemntChoose.resx">
+      <DependentUpon>StrucutureElemntChoose.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

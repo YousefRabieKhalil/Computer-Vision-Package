@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structure Elements\SquerStructreElemnt.cs" />
+    <Compile Include="StructureElement.cs" />
     <Compile Include="_Image.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +63,7 @@
       <Name>HelperFunctionality</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
